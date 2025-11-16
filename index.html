@@ -1,72 +1,61 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sehatin - Hidup Sehat Dimulai dari Sini</title>
     <link rel="stylesheet" href="css/style.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
     <!-- Intro Section -->
     <section id="intro">
-      <div>
-        <h1>Mulai Langkah Sehatmu Hari Ini!</h1>
-        <p>
-          Yuk, cari tahu berbagai tips dan info kesehatan yang bermanfaat untuk
-          hidup yang lebih sehat.
-        </p>
-      </div>
+        <div>
+            <h1>Mulai Langkah Sehatmu Hari Ini!</h1>
+            <p>Yuk, cari tahu berbagai tips dan info kesehatan yang bermanfaat untuk hidup yang lebih sehat.</p>
+        </div>
     </section>
 
     <!-- Loading Section -->
     <section id="loading">
-      <img src="assets/logo.png" alt="Logo Sehatin" id="loadingLogo" />
-      <div class="text-small">SIJAGOAN</div>
-      <div class="text-large">
-        Website Kesehatan untuk Kesadaran Hidup Sehat.
-      </div>
-      <div class="progress-wrapper">
-        <div class="progress-container">
-          <div class="progress-bar"></div>
+        <img src="assets/logo.png" alt="Logo Sehatin" id="loadingLogo" />
+        <div class="text-small">SIJAGOAN</div>
+        <div class="text-large">Website Kesehatan untuk Kesadaran Hidup Sehat.</div>
+        <div class="progress-wrapper">
+            <div class="progress-container">
+                <div class="progress-bar"></div>
+            </div>
+            <div class="percent">0%</div>
         </div>
-        <div class="percent">0%</div>
-      </div>
-      <button id="startBtn">Siap Menjalani Hidup Sehat?</button>
+        <button id="startBtn">Siap Menjalani Hidup Sehat?</button>
     </section>
 
     <!-- Main Content -->
     <div id="mainContent" style="display: none">
-      <!-- Navigation -->
-      <nav id="navbar">
-        <div class="nav-container">
-          <img src="assets/logo.png" alt="Logo Sehatin" class="logo" />
-          <div class="hamburger">
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-          <ul class="nav-menu">
-            <li><a href="#beranda" class="nav-link active">Beranda</a></li>
-            <li><a href="#aspek" class="nav-link">Aspek</a></li>
-            <li><a href="#info" class="nav-link">Info</a></li>
-            <li><a href="#artikel" class="nav-link">Artikel</a></li>
-            <li><a href="#kalkulator" class="nav-link">Kalkulator</a></li>
-            <li><a href="#tips" class="nav-link">Tips</a></li>
-            <li><a href="#visual" class="nav-link">Visual</a></li>
-          </ul>
-        </div>
-      </nav>
+        <!-- Navigation -->
+        <nav id="navbar">
+            <div class="nav-container">
+                <img src="assets/logo.png" alt="Logo Sehatin" class="logo" />
+                <div class="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#beranda" class="nav-link active">Beranda</a></li>
+                    <li><a href="#aspek" class="nav-link">Aspek</a></li>
+                    <li><a href="#info" class="nav-link">Info</a></li>
+                    <li><a href="#artikel" class="nav-link">Artikel</a></li>
+                    <li><a href="#kalkulator" class="nav-link">Kalkulator</a></li>
+                    <li><a href="#tips" class="nav-link">Tips</a></li>
+                    <li><a href="#visual" class="nav-link">Visual</a></li>
+                </ul>
+            </div>
+        </nav>
 
       <!-- Hero Section -->
-      <section class="hero" id="beranda">
+      <section id="beranda" class="hero">
         <div class="hero-container">
           <div class="hero-content">
             <div class="tagline">
@@ -75,18 +64,34 @@
                 <span class="highlight">Hidup Lebih Sehat.</span>
               </h1>
               <p id="typedtext"></p>
-              <button id="heroBtn" class="cta-button">
-                <span>Mulai Sekarang</span>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M5 12H19M19 12L12 5M19 12L12 19"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </button>
+              <div
+                style="
+                  display: flex;
+                  gap: 1rem;
+                  align-items: center;
+                  flex-wrap: wrap;
+                "
+              >
+                <button id="heroBtn" class="cta-button">
+                  <span>Mulai Sekarang</span>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M5 12H19M19 12L12 5M19 12L12 19"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+                <!-- Sound Control -->
+                <div id="soundControl" style="display: none">
+                  <button id="soundToggle" class="sound-toggle-btn">
+                    <span id="soundIcon">🔇</span>
+                    <span id="soundText">Sound Off</span>
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
           <div class="hero-visual">
@@ -98,7 +103,7 @@
       </section>
 
       <!-- Aspek Kesehatan Section -->
-      <section class="kesehatan" id="aspek">
+      <section id="aspek" class="kesehatan">
         <div class="section-header">
           <h4>Yuk Kenali</h4>
           <h1>Aspek Kesehatan</h1>
@@ -117,7 +122,7 @@
       </section>
 
       <!-- Info Kesehatan Section -->
-      <section class="info" id="info">
+      <section id="info" class="info">
         <div class="section-header">
           <h1>Info Kesehatan</h1>
           <p>
@@ -233,7 +238,7 @@
       </section>
 
       <!-- Artikel Section -->
-      <section class="artikel" id="artikel">
+      <section id="artikel" class="artikel">
         <div class="section-header">
           <h1>Artikel Kesehatan</h1>
           <p>Informasi terpercaya dari sumber kesehatan terkemuka</p>
@@ -326,7 +331,7 @@
       </section>
 
       <!-- Kalkulator Section -->
-      <section class="kalkulator" id="kalkulator">
+      <section id="kalkulator" class="kalkulator">
         <div class="section-header">
           <h1>Kalkulator Kesehatan</h1>
           <p>Hitung kebutuhan kesehatan Anda dengan alat kami</p>
@@ -400,7 +405,7 @@
       </section>
 
       <!-- Tips Section -->
-      <section class="tips" id="tips">
+      <section id="tips" class="tips">
         <div class="section-header">
           <h1>Tips Kesehatan Harian</h1>
           <p>Praktik sederhana untuk hidup lebih sehat setiap hari</p>
@@ -458,7 +463,7 @@
       </section>
 
       <!-- Visual Section -->
-      <section class="visual" id="visual">
+      <section id="visual" class="visual">
         <div class="section-header">
           <h1>Yuk Belajar Sehat Lewat Visual!</h1>
           <p>
@@ -545,6 +550,12 @@
         </div>
       </section>
     </div>
+
+    <!-- Audio Element -->
+    <audio id="backgroundMusic" loop>
+      <source src="backsound.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
 
     <script src="js/script.js"></script>
   </body>

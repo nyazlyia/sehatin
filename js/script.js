@@ -13,12 +13,23 @@ document.addEventListener("DOMContentLoaded", () => {
   const navMenu = document.querySelector(".nav-menu");
   const navLinks = document.querySelectorAll(".nav-link");
 
+  // Sound elements
+  const soundControl = document.getElementById("soundControl");
+  const soundToggle = document.getElementById("soundToggle");
+  const soundIcon = document.getElementById("soundIcon");
+  const soundText = document.getElementById("soundText");
+  const backgroundMusic = document.getElementById("backgroundMusic");
+
+  // Sound state
+  let isSoundOn = false;
+
   // Initialize
-  initNavigation(); // PASTIIN NAVIGASI DIPANGGIL
+  initNavigation(); // PASTIKAN NAVIGASI DIPANGGIL
   initScrollAnimations();
   initTypedText();
   initActiveSectionObserver();
   initSlides();
+  initSoundControl();
 
   // Intro sequence
   setTimeout(() => {
@@ -124,107 +135,148 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // NAVIGASI SEDERHANA YANG PASTI BEKERJA
+  // Navigation functions
   function initNavigation() {
-    console.log("🚀 Initializing Navigation...");
-
     // Hamburger menu
-    if (hamburger) {
-      hamburger.addEventListener("click", () => {
-        console.log("🍔 Hamburger clicked");
-        hamburger.classList.toggle("active");
-        navMenu.classList.toggle("active");
-        document.body.style.overflow = navMenu.classList.contains("active")
-          ? "hidden"
-          : "";
-      });
-    }
+    hamburger?.addEventListener("click", () => {
+      hamburger.classList.toggle("active");
+      navMenu.classList.toggle("active");
+      document.body.style.overflow = navMenu.classList.contains("active")
+        ? "hidden"
+        : "";
+    });
 
-    // SMOOTH SCROLL YANG SIMPLE DAN WORK
+    // Close menu when clicking on links
     navLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        hamburger.classList.remove("active");
+        navMenu.classList.remove("active");
+        document.body.style.overflow = "";
+      });
+    });
+
+    // Navbar scroll effect
+    window.addEventListener("scroll", () => {
+      navbar.classList.toggle("scrolled", window.scrollY > 50);
+
+      // Active link highlighting
+      const scrollY = window.pageYOffset + 100;
+      document.querySelectorAll("section[id]").forEach((section) => {
+        const sectionHeight = section.offsetHeight;
+        const sectionTop = section.offsetTop;
+        const sectionId = section.getAttribute("id");
+
+        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+          navLinks.forEach((link) => link.classList.remove("active"));
+          document
+            .querySelector(`.nav-menu a[href*=${sectionId}]`)
+            ?.classList.add("active");
+        }
+      });
+    });
+  }
+
+  // Footer navigation
+  function initFooterNavigation() {
+    const footerLinks = document.querySelectorAll(".footer-links a");
+
+    footerLinks.forEach((link) => {
       link.addEventListener("click", function (e) {
         e.preventDefault();
 
         const targetId = this.getAttribute("href");
-        console.log("🔗 Clicked:", targetId);
-
         if (targetId.startsWith("#")) {
           const targetSection = document.querySelector(targetId);
 
           if (targetSection) {
-            // Close mobile menu
-            if (hamburger && navMenu) {
-              hamburger.classList.remove("active");
-              navMenu.classList.remove("active");
-              document.body.style.overflow = "";
-            }
-
-            // Scroll ke section
-            const targetPosition = targetSection.offsetTop - 80;
+            const navbarHeight = navbar.offsetHeight;
+            const targetPosition = targetSection.offsetTop - navbarHeight;
 
             window.scrollTo({
               top: targetPosition,
               behavior: "smooth",
             });
 
-            // Update active link
+            // Update active nav
             navLinks.forEach((l) => l.classList.remove("active"));
-            this.classList.add("active");
+            const correspondingNavLink = document.querySelector(
+              `.nav-link[href="${targetId}"]`
+            );
+            if (correspondingNavLink) {
+              correspondingNavLink.classList.add("active");
+            }
 
-            console.log("✅ Scrolled to:", targetId);
+            // Close mobile menu if open
+            if (hamburger && navMenu.classList.contains("active")) {
+              hamburger.classList.remove("active");
+              navMenu.classList.remove("active");
+              document.body.style.overflow = "";
+            }
           }
         }
       });
     });
+  }
 
-    // Navbar scroll effect
-    window.addEventListener("scroll", () => {
-      if (navbar) {
-        navbar.classList.toggle("scrolled", window.scrollY > 50);
+  // Sound control function
+  function initSoundControl() {
+    // Create sound toggle button styles
+    const style = document.createElement("style");
+    style.textContent = `
+      .sound-toggle-btn {
+        background: rgba(255, 255, 255, 0.9);
+        color: var(--primary-color);
+        border: 2px solid var(--primary-light);
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: var(--transition);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: 600;
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(10px);
+        font-family: "Poppins", sans-serif;
+      }
+      
+      .sound-toggle-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg);
+        background: var(--primary-color);
+        color: var(--white);
+        border-color: var(--primary-color);
+      }
+    `;
+    document.head.appendChild(style);
+
+    soundToggle.addEventListener("click", () => {
+      isSoundOn = !isSoundOn;
+
+      if (isSoundOn) {
+        // Try to play music
+        backgroundMusic.play().catch((e) => {
+          console.log("Autoplay prevented:", e);
+          // Show user interaction required message
+          alert("Klik 'Sound On' sekali lagi untuk memutar musik");
+          isSoundOn = false;
+          return;
+        });
+        soundIcon.textContent = "🔊";
+        soundText.textContent = "Sound On";
+        soundToggle.style.background = "var(--primary-color)";
+        soundToggle.style.color = "var(--white)";
+        soundToggle.style.borderColor = "var(--primary-color)";
+      } else {
+        backgroundMusic.pause();
+        soundIcon.textContent = "🔇";
+        soundText.textContent = "Sound Off";
+        soundToggle.style.background = "rgba(255, 255, 255, 0.9)";
+        soundToggle.style.color = "var(--primary-color)";
+        soundToggle.style.borderColor = "var(--primary-light)";
       }
     });
-
-    // Active section detection - SIMPLE VERSION
-    window.addEventListener("scroll", () => {
-      const sections = document.querySelectorAll("section[id]");
-      const scrollPos = window.scrollY + 100;
-
-      sections.forEach((section) => {
-        const sectionTop = section.offsetTop - 100;
-        const sectionBottom = sectionTop + section.offsetHeight;
-        const sectionId = section.getAttribute("id");
-
-        if (scrollPos >= sectionTop && scrollPos <= sectionBottom) {
-          navLinks.forEach((link) => {
-            link.classList.remove("active");
-            if (link.getAttribute("href") === `#${sectionId}`) {
-              link.classList.add("active");
-            }
-          });
-        }
-      });
-    });
-
-    // Hero button
-    const heroBtn = document.getElementById("heroBtn");
-    if (heroBtn) {
-      heroBtn.addEventListener("click", () => {
-        const aspekSection = document.getElementById("aspek");
-        if (aspekSection) {
-          const targetPosition = aspekSection.offsetTop - 80;
-          window.scrollTo({
-            top: targetPosition,
-            behavior: "smooth",
-          });
-
-          // Update active nav
-          navLinks.forEach((l) => l.classList.remove("active"));
-          document
-            .querySelector('.nav-link[href="#aspek"]')
-            .classList.add("active");
-        }
-      });
-    }
   }
 
   // Active Section Observer
@@ -353,6 +405,9 @@ document.addEventListener("DOMContentLoaded", () => {
         loading.style.display = "none";
         mainContent.style.display = "block";
 
+        // Show sound control in beranda section
+        soundControl.style.display = "block";
+
         // Add active class to beranda link
         const berandaLink = document.querySelector(
           '.nav-link[href="#beranda"]'
@@ -452,8 +507,8 @@ document.addEventListener("DOMContentLoaded", () => {
   window.hitungKalori = function () {
     const usia = +document.getElementById("usia").value;
     const aktivitas = +document.getElementById("aktivitas").value;
-    const berat = +document.getElementById("berat").value;
-    const tinggi = +document.getElementById("tinggi").value;
+    const berat = +document.getElementById("berat-kalori").value;
+    const tinggi = +document.getElementById("tinggi-kalori").value;
     const hasil = document.getElementById("hasil-kalori");
 
     if (!usia || !aktivitas || !berat || !tinggi) {
@@ -479,69 +534,6 @@ document.addEventListener("DOMContentLoaded", () => {
       <p>Kebutuhan Kalori: <b style="color: #3182ce;">${kebutuhanKalori} kal/hari</b></p>
     `;
   };
-
-  // Hero button click
-  document.getElementById("heroBtn")?.addEventListener("click", () => {
-    document.getElementById("aspek").scrollIntoView({ behavior: "smooth" });
-  });
-});
-
-// EMERGENCY FALLBACK - JIKA MASIH GAK BISA
-document.addEventListener("click", function (e) {
-  if (e.target.classList.contains("nav-link")) {
-    e.preventDefault();
-    const targetId = e.target.getAttribute("href");
-    const targetSection = document.querySelector(targetId);
-
-    if (targetSection) {
-      const targetPosition = targetSection.offsetTop - 80;
-      window.scrollTo({
-        top: targetPosition,
-        behavior: "smooth",
-      });
-
-      // Update active state
-      document.querySelectorAll(".nav-link").forEach((link) => {
-        link.classList.remove("active");
-      });
-      e.target.classList.add("active");
-    }
-  }
 });
 
 console.log("🎯 Navigation system loaded!");
-
-// Add this to the existing JavaScript file, inside DOMContentLoaded or separately:
-
-// Footer navigation smooth scroll
-document.addEventListener('DOMContentLoaded', function() {
-  // Handle footer links click
-  const footerLinks = document.querySelectorAll('.footer-links a');
-  
-  footerLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      
-      const targetId = this.getAttribute('href');
-      if (targetId.startsWith('#')) {
-        const targetSection = document.querySelector(targetId);
-        
-        if (targetSection) {
-          const targetPosition = targetSection.offsetTop - 80;
-          
-          window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
-          });
-          
-          // Update active nav if exists
-          const navLink = document.querySelector(`.nav-link[href="${targetId}"]`);
-          if (navLink) {
-            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
-            navLink.classList.add('active');
-          }
-        }
-      }
-    });
-  });
-});
