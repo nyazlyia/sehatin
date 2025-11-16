@@ -1,13 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sehatin</title>
+    <title>Sehatin - Hidup Sehat Dimulai dari Sini</title>
     <link rel="stylesheet" href="css/style.css" />
-    <script src="js/script.js" defer></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
+    <!-- Intro Section -->
     <section id="intro">
       <div>
         <h1>Mulai Langkah Sehatmu Hari Ini!</h1>
@@ -20,7 +28,7 @@
 
     <!-- Loading Section -->
     <section id="loading">
-      <img src="assets/logo.png" alt="Logo" id="loadingLogo" />
+      <img src="assets/logo.png" alt="Logo Sehatin" id="loadingLogo" />
       <div class="text-small">SIJAGOAN</div>
       <div class="text-large">
         Website Kesehatan untuk Kesadaran Hidup Sehat.
@@ -31,433 +39,513 @@
         </div>
         <div class="percent">0%</div>
       </div>
-      <button id="startBtn"><span></span></button>
+      <button id="startBtn">Siap Menjalani Hidup Sehat?</button>
     </section>
 
-    <div style="display: none" id="mainContent">
-      <section class="hero" id="beranda">
-        <div class="left">
-          <nav id="navbar">
-            <img src="assets/logo.png" alt="logo" class="logo" />
-            <ul class="nav-menu">
-              <li><a href="#beranda" class="active">Beranda</a></li>
-              <li><a href="#aspek">Aspek</a></li>
-              <li><a href="#info">Info</a></li>
-              <li><a href="#artikel">Artikel</a></li>
-              <li><a href="#kalkulator">Kalkulator</a></li>
-              <li><a href="#tips">Tips</a></li>
-              <li><a href="#visual">Visual</a></li>
-            </ul>
-          </nav>
-
-          <div class="tagline">
-            <h1>Kebiasaan Kecil, <br />Hidup Lebih Sehat.</h1>
-            <p id="typedtext"></p>
-            <button id="heroBtn">Mulai Sekarang</button>
+    <!-- Main Content -->
+    <div id="mainContent" style="display: none">
+      <!-- Navigation -->
+      <nav id="navbar">
+        <div class="nav-container">
+          <img src="assets/logo.png" alt="Logo Sehatin" class="logo" />
+          <div class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
           </div>
+          <ul class="nav-menu">
+            <li><a href="#beranda" class="nav-link active">Beranda</a></li>
+            <li><a href="#aspek" class="nav-link">Aspek</a></li>
+            <li><a href="#info" class="nav-link">Info</a></li>
+            <li><a href="#artikel" class="nav-link">Artikel</a></li>
+            <li><a href="#kalkulator" class="nav-link">Kalkulator</a></li>
+            <li><a href="#tips" class="nav-link">Tips</a></li>
+            <li><a href="#visual" class="nav-link">Visual</a></li>
+          </ul>
         </div>
-        <div class="right">
-          <div class="banner-circle"></div>
-        </div>
-      </section>
+      </nav>
 
-      <section class="kesehatan" id="aspek">
-        <h4>Yuk Kenali</h4>
-        <h1>Aspek Kesehatan</h1>
-        <div class="container">
-          <div class="slider">
-            <div class="slide-track">
-              <div class="slide">
-                <div class="card">
-                  <div class="header">
-                    <div class="left">
-                      <h3>Kesehatan Fisik</h3>
-                    </div>
-                    <div class="right">
-                      <img src="assets/person.svg" alt="" />
-                    </div>
-                  </div>
-                  <hr />
-                  <p>
-                    Kesehatan fisik adalah seberapa baik organ dan sistem tubuh
-                    Anda berfungsi.
-                  </p>
-                  <div class="more-text hidden">
-                    <p>
-                      Seseorang dapat mencapai definisi kesehatan fisiknya
-                      sendiri, terlepas dari penyakit, disabilitas, atau
-                      usianya.
-                    </p>
-                  </div>
-                  <a class="show-more-btn">Baca Selengkapnya</a>
-                </div>
-              </div>
-              <div class="slide">
-                <div class="card-2">
-                  <div class="header">
-                    <div class="left">
-                      <h3>Kesehatan Mental</h3>
-                    </div>
-                    <div class="right">
-                      <img src="assets/mental.svg" alt="" />
-                    </div>
-                  </div>
-                  <hr />
-                  <p>
-                    Kesehatan mental adalah aspek penting dari kesejahteraan
-                    secara keseluruhan,
-                  </p>
-                  <div class="more-text hidden">
-                    <p>
-                      karena berpengaruh langsung terhadap cara seseorang
-                      berpikir, merasa, dan berperilaku.
-                    </p>
-                  </div>
-                  <a class="show-more-btn">Baca Selengkapnya</a>
-                </div>
-              </div>
-              <div class="slide">
-                <div class="card">
-                  <div class="header">
-                    <div class="left">
-                      <h3>Kesehatan Sosial</h3>
-                    </div>
-                    <div class="right">
-                      <img src="assets/people.svg" alt="" />
-                    </div>
-                  </div>
-                  <hr />
-                  <p>
-                    Kesehatan sosial adalah suatu interaksi positif dengan orang
-                    lain, lingkungan, dan komunitas.
-                  </p>
-                  <div class="more-text hidden">
-                    <p>
-                      Hal ini melibatkan hubungan yang sehat dan rasa saling
-                      memiliki antara satu orang dengan orang lainnya.
-                    </p>
-                  </div>
-                  <a class="show-more-btn">Baca Selengkapnya</a>
-                </div>
-              </div>
-              <div class="slide">
-                <div class="card">
-                  <div class="header">
-                    <div class="left">
-                      <h3>Kesehatan Fisik</h3>
-                    </div>
-                    <div class="right">
-                      <img src="assets/person.svg" alt="" />
-                    </div>
-                  </div>
-                  <hr />
-                  <p>
-                    Kesehatan fisik adalah seberapa baik organ dan sistem tubuh
-                    Anda berfungsi.
-                  </p>
-                  <div class="more-text hidden">
-                    <p>
-                      Seseorang dapat mencapai definisi kesehatan fisiknya
-                      sendiri, terlepas dari penyakit, disabilitas, atau
-                      usianya.
-                    </p>
-                  </div>
-                  <a class="show-more-btn">Baca Selengkapnya</a>
-                </div>
-              </div>
-              <div class="slide">
-                <div class="card-2">
-                  <div class="header">
-                    <div class="left">
-                      <h3>Kesehatan Mental</h3>
-                    </div>
-                    <div class="right">
-                      <img src="assets/mental.svg" alt="" />
-                    </div>
-                  </div>
-                  <hr />
-                  <p>
-                    Kesehatan mental adalah aspek penting dari kesejahteraan
-                    secara keseluruhan,
-                  </p>
-                  <div class="more-text hidden">
-                    <p>
-                      karena berpengaruh langsung terhadap cara seseorang
-                      berpikir, merasa, dan berperilaku.
-                    </p>
-                  </div>
-                  <a class="show-more-btn">Baca Selengkapnya</a>
-                </div>
-              </div>
-              <div class="slide">
-                <div class="card">
-                  <div class="header">
-                    <div class="left">
-                      <h3>Kesehatan Sosial</h3>
-                    </div>
-                    <div class="right">
-                      <img src="assets/people.svg" alt="" />
-                    </div>
-                  </div>
-                  <hr />
-                  <p>
-                    Kesehatan sosial adalah suatu interaksi positif dengan orang
-                    lain, lingkungan, dan komunitas.
-                  </p>
-                  <div class="more-text hidden">
-                    <p>
-                      Hal ini melibatkan hubungan yang sehat dan rasa saling
-                      memiliki antara satu orang dengan orang lainnya.
-                    </p>
-                  </div>
-                  <a class="show-more-btn">Baca Selengkapnya</a>
-                </div>
-              </div>
-              <div class="slide">
-                <div class="card">
-                  <div class="header">
-                    <div class="left">
-                      <h3>Kesehatan Fisik</h3>
-                    </div>
-                    <div class="right">
-                      <img src="assets/person.svg" alt="" />
-                    </div>
-                  </div>
-                  <hr />
-                  <p>
-                    Kesehatan fisik adalah seberapa baik organ dan sistem tubuh
-                    Anda berfungsi.
-                  </p>
-                  <div class="more-text hidden">
-                    <p>
-                      Seseorang dapat mencapai definisi kesehatan fisiknya
-                      sendiri, terlepas dari penyakit, disabilitas, atau
-                      usianya.
-                    </p>
-                  </div>
-                  <a class="show-more-btn">Baca Selengkapnya</a>
-                </div>
-              </div>
+      <!-- Hero Section -->
+      <section class="hero" id="beranda">
+        <div class="hero-container">
+          <div class="hero-content">
+            <div class="tagline">
+              <h1>
+                Kebiasaan Kecil,
+                <span class="highlight">Hidup Lebih Sehat.</span>
+              </h1>
+              <p id="typedtext"></p>
+              <button id="heroBtn" class="cta-button">
+                <span>Mulai Sekarang</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M5 12H19M19 12L12 5M19 12L12 19"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <div class="banner-circle">
+              <div class="circle-shape"></div>
             </div>
           </div>
         </div>
       </section>
+
+      <!-- Aspek Kesehatan Section -->
+      <section class="kesehatan" id="aspek">
+        <div class="section-header">
+          <h4>Yuk Kenali</h4>
+          <h1>Aspek Kesehatan</h1>
+          <p>
+            Pahami berbagai aspek kesehatan untuk hidup yang lebih seimbang dan
+            berkualitas
+          </p>
+        </div>
+        <div class="slider-container">
+          <div class="slider">
+            <div class="slide-track">
+              <!-- Slides akan diisi oleh JavaScript -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Info Kesehatan Section -->
       <section class="info" id="info">
-        <h1>Info Kesehatan</h1>
-        <p>
-          Sumber informasi kesehatan ini berasal dari situs resmi eksternal.
-          Kami hanya menyediakan tautan untuk memudahkan akses pengguna.
-        </p>
-        <div class="container">
-          <a
-            href="https://bebeclub.co.id/artikel/nutrisi/trimester-1/7-nutrisi-untuk-ibu-hamil"
-            class="btn"
-          >
-            <img src="assets/hamil.svg" alt="kehamilan" />
-            Kehamilan
-          </a>
-          <a
-            href="https://www.alodokter.com/pentingnya-kesehatan-sistem-pencernaan-bagi-daya-tahan-tubuh"
-            class="btn"
-          >
-            <img src="assets/pencernaan.svg" alt="pencernaan" />
-            Pencernaan
-          </a>
-          <a
-            href="https://www.claritin.co.id/artikel/penting-gejala-alergi-yang-wajib-diketahui"
-            class="btn"
-          >
-            <img src="assets/alergi.svg" alt="alergi" />
-            Alergi
-          </a>
-          <a
-            href="https://rswonolangan.ihc.id/artikel-detail-820-Menjaga-Kesehatan-Mata-di-Era-Digital-Tips-Menghindari-Mata-Lelah.html"
-            class="btn"
-          >
-            <img src="assets/mata.svg" alt="mata" />
-            Kesehatan Mata
-          </a>
+        <div class="section-header">
+          <h1>Info Kesehatan</h1>
+          <p>
+            Sumber informasi kesehatan ini berasal dari situs resmi eksternal.
+            Kami hanya menyediakan tautan untuk memudahkan akses pengguna.
+          </p>
         </div>
-        <div class="container">
-          <a
-            href="https://my.clevelandclinic.org/health/diseases/9536-anxiety-disorders"
-            class="btn"
-          >
-            <img src="assets/anxiety.svg" alt="anxiety" />
-            Anxiety Disorders
-          </a>
-          <a
-            href="https://www.mitrakeluarga.com/artikel/apa-itu-bipolar-disorder"
-            class="btn"
-          >
-            <img src="assets/bipolar.svg" alt="bipolar" />
-            Bipolar Disorders
-          </a>
-          <a href="https://www.alodokter.com/ocd" class="btn">
-            <img src="assets/ocd.svg" alt="ocd" />
-            OCD
-          </a>
-          <a
-            href="https://www.mitrakeluarga.com/artikel/skizofrenia-gejala-penyebab-pengobatan"
-            class="btn"
-          >
-            <img src="assets/skizofrenia.svg" alt="skizofrenia" />
-            Skizofrenia
-          </a>
+        <div class="info-grid">
+          <!-- Baris 1 - 4 card -->
+          <div class="info-row">
+            <a
+              href="https://bebeclub.co.id/artikel/nutrisi/trimester-1/7-nutrisi-untuk-ibu-hamil"
+              class="info-card"
+              target="_blank"
+            >
+              <div class="info-icon">
+                <div class="icon-bg"></div>
+                <img src="assets/hamil.svg" alt="kehamilan" />
+              </div>
+              <h3>Kehamilan</h3>
+              <p>Informasi lengkap tentang kesehatan ibu hamil dan janin</p>
+            </a>
+            <a
+              href="https://www.alodokter.com/pentingnya-kesehatan-sistem-pencernaan-bagi-daya-tahan-tubuh"
+              class="info-card"
+              target="_blank"
+            >
+              <div class="info-icon">
+                <div class="icon-bg"></div>
+                <img src="assets/pencernaan.svg" alt="pencernaan" />
+              </div>
+              <h3>Pencernaan</h3>
+              <p>Tips menjaga kesehatan sistem pencernaan</p>
+            </a>
+            <a
+              href="https://www.claritin.co.id/artikel/penting-gejala-alergi-yang-wajib-diketahui"
+              class="info-card"
+              target="_blank"
+            >
+              <div class="info-icon">
+                <div class="icon-bg"></div>
+                <img src="assets/alergi.svg" alt="alergi" />
+              </div>
+              <h3>Alergi</h3>
+              <p>Mengenal gejala dan penanganan alergi</p>
+            </a>
+            <a
+              href="https://rswonolangan.ihc.id/artikel-detail-820-Menjaga-Kesehatan-Mata-di-Era-Digital-Tips-Menghindari-Mata-Lelah.html"
+              class="info-card"
+              target="_blank"
+            >
+              <div class="info-icon">
+                <div class="icon-bg"></div>
+                <img src="assets/mata.svg" alt="mata" />
+              </div>
+              <h3>Kesehatan Mata</h3>
+              <p>Menjaga kesehatan mata di era digital</p>
+            </a>
+          </div>
+
+          <!-- Baris 2 - 4 card -->
+          <div class="info-row">
+            <a
+              href="https://my.clevelandclinic.org/health/diseases/9536-anxiety-disorders"
+              class="info-card"
+              target="_blank"
+            >
+              <div class="info-icon">
+                <div class="icon-bg"></div>
+                <img src="assets/anxiety.svg" alt="anxiety" />
+              </div>
+              <h3>Anxiety Disorders</h3>
+              <p>Memahami gangguan kecemasan dan penanganannya</p>
+            </a>
+            <a
+              href="https://www.mitrakeluarga.com/artikel/apa-itu-bipolar-disorder"
+              class="info-card"
+              target="_blank"
+            >
+              <div class="info-icon">
+                <div class="icon-bg"></div>
+                <img src="assets/bipolar.svg" alt="bipolar" />
+              </div>
+              <h3>Bipolar Disorders</h3>
+              <p>Mengenal gangguan bipolar dan terapinya</p>
+            </a>
+            <a
+              href="https://www.alodokter.com/ocd"
+              class="info-card"
+              target="_blank"
+            >
+              <div class="info-icon">
+                <div class="icon-bg"></div>
+                <img src="assets/ocd.svg" alt="ocd" />
+              </div>
+              <h3>OCD</h3>
+              <p>Informasi tentang obsessive compulsive disorder</p>
+            </a>
+            <a
+              href="https://www.mitrakeluarga.com/artikel/skizofrenia-gejala-penyebab-pengobatan"
+              class="info-card"
+              target="_blank"
+            >
+              <div class="info-icon">
+                <div class="icon-bg"></div>
+                <img src="assets/skizofrenia.svg" alt="skizofrenia" />
+              </div>
+              <h3>Skizofrenia</h3>
+              <p>Memahami skizofrenia dan perawatannya</p>
+            </a>
+          </div>
         </div>
       </section>
+
+      <!-- Artikel Section -->
       <section class="artikel" id="artikel">
-        <h1>Artikel Kesehatan</h1>
-        <div class="box">
-          <div class="container">
-            <img src="assets/k_mental.svg" alt="kesehatan mental" />
-            <h4>Kesehatan Mental</h4>
-            <p>
-              Promosi Kesehatan tentang Pentingnya Menjaga Kesehatan Mental pada
-              Remaja
-            </p>
-            <a
-              href="https://ayosehat.kemkes.go.id/pentingnya-kesehatan-mental-bagi-remaja"
-              >Pelajari Lebih Lanjut ></a
-            >
-          </div>
-          <div class="container">
-            <img src="assets/k_sosial.svg" alt="koneksi sosial" />
-            <h4>Koneksi Sosial</h4>
-            <p>
-              Hubungan Sosial terkait dengan Peningkatan Kesehatan dan
-              Berkurangnya Risiko Kematian Dini
-            </p>
-            <a
-              href="https://www.who.int/news/item/30-06-2025-social-connection-linked-to-improved-heath-and-reduced-risk-of-early-death"
-              >Pelajari Lebih Lanjut ></a
-            >
-          </div>
-          <div class="container">
-            <img src="assets/p_kesehatan.svg" alt="populasi kesehatan" />
-            <h4>Populasi Kesehatan</h4>
-            <p>Apa Itu Populasi Kesehatan dan Kenapa Itu Penting?</p>
-            <a href="https://www.bu.edu/sph/blog/what-is-population-health/"
-              >Pelajari Lebih Lanjut ></a
-            >
-          </div>
+        <div class="section-header">
+          <h1>Artikel Kesehatan</h1>
+          <p>Informasi terpercaya dari sumber kesehatan terkemuka</p>
+        </div>
+        <div class="artikel-grid">
+          <article class="artikel-card">
+            <div class="card-image">
+              <img src="assets/k_mental.svg" alt="kesehatan mental" />
+            </div>
+            <div class="card-content">
+              <h3>Kesehatan Mental</h3>
+              <p>
+                Promosi Kesehatan tentang Pentingnya Menjaga Kesehatan Mental
+                pada Remaja
+              </p>
+              <a
+                href="https://ayosehat.kemkes.go.id/pentingnya-kesehatan-mental-bagi-remaja"
+                class="read-more"
+                target="_blank"
+              >
+                Pelajari Lebih Lanjut
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M5 12H19M19 12L12 5M19 12L12 19"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="artikel-card">
+            <div class="card-image">
+              <img src="assets/k_sosial.svg" alt="koneksi sosial" />
+            </div>
+            <div class="card-content">
+              <h3>Koneksi Sosial</h3>
+              <p>
+                Hubungan Sosial terkait dengan Peningkatan Kesehatan dan
+                Berkurangnya Risiko Kematian Dini
+              </p>
+              <a
+                href="https://www.who.int/news/item/30-06-2025-social-connection-linked-to-improved-heath-and-reduced-risk-of-early-death"
+                class="read-more"
+                target="_blank"
+              >
+                Pelajari Lebih Lanjut
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M5 12H19M19 12L12 5M19 12L12 19"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="artikel-card">
+            <div class="card-image">
+              <img src="assets/p_kesehatan.svg" alt="populasi kesehatan" />
+            </div>
+            <div class="card-content">
+              <h3>Populasi Kesehatan</h3>
+              <p>Apa Itu Populasi Kesehatan dan Kenapa Itu Penting?</p>
+              <a
+                href="https://www.bu.edu/sph/blog/what-is-population-health/"
+                class="read-more"
+                target="_blank"
+              >
+                Pelajari Lebih Lanjut
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M5 12H19M19 12L12 5M19 12L12 19"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+            </div>
+          </article>
         </div>
       </section>
+
+      <!-- Kalkulator Section -->
       <section class="kalkulator" id="kalkulator">
-        <h1>Kalkulator Kesehatan</h1>
-        <div class="container">
-          <div class="bmi">
-            <h4>Kalkulator BMI</h4>
+        <div class="section-header">
+          <h1>Kalkulator Kesehatan</h1>
+          <p>Hitung kebutuhan kesehatan Anda dengan alat kami</p>
+        </div>
+        <div class="kalkulator-grid">
+          <div class="calc-card">
+            <div class="calc-header">
+              <h3>Kalkulator BMI</h3>
+              <p>Hitung Indeks Massa Tubuh Anda</p>
+            </div>
             <div class="gender-select">
               <div class="gender" id="male">
-                <img
-                  src="https://i.pinimg.com/736x/52/3b/ef/523befc6a1f2510535a82f5bed96b01a.jpg"
-                  alt="Male"
-                />
+                <div class="gender-icon">
+                  <img
+                    src="https://i.pinimg.com/736x/52/3b/ef/523befc6a1f2510535a82f5bed96b01a.jpg"
+                    alt="Male"
+                  />
+                </div>
                 <p>Laki-laki</p>
               </div>
               <div class="gender" id="female">
-                <img
-                  src="https://i.pinimg.com/736x/9d/34/59/9d3459c8061ceed65987bcd96bb12c9f.jpg"
-                  alt="Female"
-                />
+                <div class="gender-icon">
+                  <img
+                    src="https://i.pinimg.com/736x/9d/34/59/9d3459c8061ceed65987bcd96bb12c9f.jpg"
+                    alt="Female"
+                  />
+                </div>
                 <p>Perempuan</p>
               </div>
             </div>
-            <input type="number" id="berat" placeholder="Berat (kg)" />
-            <input type="number" id="tinggi" placeholder="Tinggi (cm)" />
-            <button onclick="hitungBMI()">Hitung BMI</button>
+            <div class="input-group">
+              <input type="number" id="berat" placeholder="Berat (kg)" />
+              <input type="number" id="tinggi" placeholder="Tinggi (cm)" />
+            </div>
+            <button class="calc-button" onclick="hitungBMI()">
+              Hitung BMI
+            </button>
             <div class="hasil" id="hasil"></div>
           </div>
-          <div class="kalori">
-            <h4>Kalkulator Kalori Harian</h4>
-            <input type="number" id="usia" placeholder="Usia" />
 
-            <select id="aktivitas">
-              <option value="">Tingkat Aktivitas</option>
-              <option value="1.2">Sangat ringan (jarang olahraga)</option>
-              <option value="1.375">Ringan (1-3x/minggu)</option>
-              <option value="1.55">Sedang (3-5x/minggu)</option>
-              <option value="1.725">Berat (6-7x/minggu)</option>
-              <option value="1.9">
-                Sangat berat (fisik tinggi/hard training)
-              </option>
-            </select>
-
-            <button onclick="hitungKalori()">Hitung Kalori</button>
+          <div class="calc-card">
+            <div class="calc-header">
+              <h3>Kalkulator Kalori Harian</h3>
+              <p>Ketahui kebutuhan kalori harian Anda</p>
+            </div>
+            <div class="input-group">
+              <input type="number" id="usia" placeholder="Usia" />
+              <select id="aktivitas">
+                <option value="">Tingkat Aktivitas</option>
+                <option value="1.2">Sangat ringan (jarang olahraga)</option>
+                <option value="1.375">Ringan (1-3x/minggu)</option>
+                <option value="1.55">Sedang (3-5x/minggu)</option>
+                <option value="1.725">Berat (6-7x/minggu)</option>
+                <option value="1.9">
+                  Sangat berat (fisik tinggi/hard training)
+                </option>
+              </select>
+              <input type="number" id="berat-kalori" placeholder="Berat (kg)" />
+              <input
+                type="number"
+                id="tinggi-kalori"
+                placeholder="Tinggi (cm)"
+              />
+            </div>
+            <button class="calc-button" onclick="hitungKalori()">
+              Hitung Kalori
+            </button>
             <div class="hasil" id="hasil-kalori"></div>
           </div>
         </div>
       </section>
+
+      <!-- Tips Section -->
       <section class="tips" id="tips">
-        <h1>Tips Kesehatan Harian</h1>
-        <div class="container">
-          <div class="card">
+        <div class="section-header">
+          <h1>Tips Kesehatan Harian</h1>
+          <p>Praktik sederhana untuk hidup lebih sehat setiap hari</p>
+        </div>
+        <div class="tips-grid">
+          <div class="tip-card">
+            <div class="tip-icon">
+              <img
+                src="https://img.icons8.com/ios/100/000000/apple.png"
+                alt="Nutrisi"
+              />
+            </div>
             <h3>Nutrisi</h3>
-            <li>
-              <ul>
-                Makan makanan seimbang.
-              </ul>
-            </li>
-            <li>
-              <ul>
-                Konsumsi cukup air putih.
-              </ul>
-            </li>
-            <li>
-              <ul>
-                Batasi makanan olahan.
-              </ul>
-            </li>
+            <ul>
+              <li>Makan makanan seimbang</li>
+              <li>Konsumsi cukup air putih</li>
+              <li>Batasi makanan olahan</li>
+              <li>Perbanyak serat</li>
+              <li>Kontrol porsi makan</li>
+            </ul>
           </div>
-          <div class="card">
+          <div class="tip-card">
+            <div class="tip-icon">
+              <img
+                src="https://img.icons8.com/ios/100/000000/heart-with-pulse.png"
+                alt="Aktivitas Fisik"
+              />
+            </div>
             <h3>Aktivitas Fisik</h3>
-            <li>
-              <ul>
-                30 menit olahraga setiap hari.
-              </ul>
-            </li>
-            <li>
-              <ul>
-                Stretching di pagi hari.
-              </ul>
-            </li>
-            <li>
-              <ul>
-                Jalan kaki 10.000 langkah.
-              </ul>
-            </li>
+            <ul>
+              <li>30 menit olahraga setiap hari</li>
+              <li>Stretching di pagi hari</li>
+              <li>Jalan kaki 10.000 langkah</li>
+              <li>Naik turun tangga</li>
+              <li>Istirahat aktif</li>
+            </ul>
           </div>
-          <div class="card">
+          <div class="tip-card">
+            <div class="tip-icon">
+              <img
+                src="https://img.icons8.com/ios/100/000000/bed.png"
+                alt="Istirahat"
+              />
+            </div>
             <h3>Istirahat</h3>
-            <li>
-              <ul>
-                Tidur 7-8 jam sehari.
-              </ul>
-            </li>
-            <li>
-              <ul>
-                Meditasi 10 menit.
-              </ul>
-            </li>
-            <li>
-              <ul>
-                Istirahat yang cukup.
-              </ul>
-            </li>
+            <ul>
+              <li>Tidur 7-8 jam sehari</li>
+              <li>Meditasi 10 menit</li>
+              <li>Istirahat yang cukup</li>
+              <li>Batasi screen time</li>
+              <li>Relaksasi sebelum tidur</li>
+            </ul>
           </div>
         </div>
       </section>
+
+      <!-- Visual Section -->
       <section class="visual" id="visual">
-        <h1>Yuk Belajar Sehat Lewat Visual!</h1>
-        <div class="thumbnail">
-          <a href="https://youtu.be/qZ0JFgQ00oc?si=cnV6PMNLCyomwcdP">
-            <div class="circle">
-              <div class="triangle"></div>
+        <div class="section-header">
+          <h1>Yuk Belajar Sehat Lewat Visual!</h1>
+          <p>
+            Video edukasi untuk memahami kesehatan dengan cara yang menyenangkan
+          </p>
+        </div>
+        <div class="video-container">
+          <div class="video-thumbnail">
+            <a
+              href="https://youtu.be/qZ0JFgQ00oc?si=cnV6PMNLCyomwcdP"
+              class="video-link"
+              target="_blank"
+            >
+              <div class="thumbnail-image">
+                <div class="play-button">
+                  <div class="triangle"></div>
+                </div>
+                <div class="overlay">
+                  <h4>Panduan Hidup Sehat</h4>
+                  <p>Tips praktis untuk memulai gaya hidup sehat</p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+      <section class="footer">
+        <div class="footer-container">
+          <div class="footer-content">
+            <div class="footer-section">
+              <img
+                src="assets/logo.png"
+                alt="Sehatin Logo"
+                class="footer-logo"
+              />
+              <p>
+                Website kesehatan untuk membantu Anda mencapai hidup yang lebih
+                sehat melalui informasi dan alat yang mudah digunakan.
+              </p>
             </div>
-          </a>
+
+            <div class="footer-section">
+              <h4>Menu Cepat</h4>
+              <ul class="footer-links">
+                <li><a href="#beranda">Beranda</a></li>
+                <li><a href="#aspek">Aspek Kesehatan</a></li>
+                <li><a href="#info">Info Kesehatan</a></li>
+                <li><a href="#artikel">Artikel</a></li>
+                <li><a href="#kalkulator">Kalkulator</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-section">
+              <h4>Layanan</h4>
+              <ul class="footer-links">
+                <li><a href="#kalkulator">Kalkulator BMI</a></li>
+                <li><a href="#kalkulator">Kalkulator Kalori</a></li>
+                <li><a href="#tips">Tips Sehat</a></li>
+                <li><a href="#artikel">Artikel Kesehatan</a></li>
+                <li><a href="#visual">Video Edukasi</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-section">
+              <h4>Kontak</h4>
+              <div class="contact-info">
+                <p>📧 example@sehatin.com</p>
+                <p>📞 +62 812-3456-7890</p>
+                <p>📍 Jl. Sehat, Bogor</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-bottom">
+            <div class="footer-bottom-content">
+              <p>&copy; 2025 Sehatin. All rights reserved.</p>
+              <div class="footer-legal">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Disclaimer</a>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </div>
+
+    <script src="js/script.js"></script>
   </body>
 </html>
